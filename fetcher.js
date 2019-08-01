@@ -5,10 +5,10 @@ const request = require('request');
 const fs = require('fs');
 
 request(address, (error, response, body) => {
-  console.time();
+  console.time('Done in ');
   fs.writeFile(file,body,(err)=> {
     if (!err) {
-      console.timeEnd();
+      console.timeEnd("Done in ");
       const stats = fs.statSync(file);
       const fileSize = stats["size"];
       console.log('Downloaded and saved ' + stats.size + ' bytes to ' + file);
